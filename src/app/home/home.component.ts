@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit {
     if(this.goalText != ''){
       if(this.goals.filter(opt => opt.name == this.goalText).length > 0){
         alert("Duplicate goal found.");
+        this.goalText = '';
       }
       else{
         this.goals.push({name:this.goalText, value:'1', checked:false});
