@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
   itemCount: number;
   btnAddText: string = 'Add an item';
   btnRemoveText: string = 'Remove selected item(s)';
+  btnRemoveAllText: string = 'Remove all items';
   goalText: string = '';
   goals = [];
 
@@ -78,5 +79,11 @@ export class HomeComponent implements OnInit {
     this.goals = [];
     this.itemCount = 0;
     this._data.changeGoal(this.goals);
+  }
+
+  removeAllItems(){
+      this.goals = [];
+      this.itemCount = this.goals.length;
+      this._data.changeGoal(this.goals);
   }
 }
