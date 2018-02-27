@@ -48,10 +48,15 @@ export class HomeComponent implements OnInit {
 
   addItem(){
     if(this.goalText != ''){
-      this.goals.push({name:this.goalText, value:'1', checked:false});
-      this.goalText = '';
-      this.itemCount = this.goals.length;
-      this._data.changeGoal(this.goals);
+      if(this.goals.filter(opt => opt.name == this.goalText).length > 0){
+        alert("Duplicate goal found.");
+      }
+      else{
+        this.goals.push({name:this.goalText, value:'1', checked:false});
+        this.goalText = '';
+        this.itemCount = this.goals.length;
+        this._data.changeGoal(this.goals);
+      }
     }
     else{
       alert("Please enter a goal.");
